@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 public class TestCalculator extends JFrame implements ActionListener {
-	JButton bt1 = new JButton("1");
+	private JButton bt1 = new JButton("1");
 	JButton bt2 = new JButton("2");
 	JButton bt3 = new JButton("3");
 	JButton bt4 = new JButton("4");
@@ -29,7 +29,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
-		p1.setLayout(new GridLayout(4,4,5,5));
+		p1.setLayout(new GridLayout(4,4,10,10));
 		
 		for(int i = 0;i < 10;i++){
 			p1.add(new JButton("" + i));
@@ -118,7 +118,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	} 
 	public static void main(String[] args){
 		TestCalculator frame = new TestCalculator();
-		frame.setSize(700,400);
+		frame.setSize(500,400);
 		frame.setTitle("Calculator");
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
