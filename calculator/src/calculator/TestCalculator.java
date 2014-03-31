@@ -67,7 +67,9 @@ public class TestCalculator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
-		double fn,ln,total;
+		int arraySize = 0;
+		Double num[];
+		double total;
 		String operation;
 		
 		if(e.getSource() == bt1){
@@ -95,25 +97,29 @@ public class TestCalculator extends JFrame implements ActionListener {
 		}else if(e.getSource() == btc){
 			tf.setText("");
 		}else if(e.getSource() == btplus){
-			fn = Double.parseDouble(input);
+			arraySize = arraySize + 1;
+			num[arraySize] = Double.parseDouble(input);
 			operation = "+";
 			tf.setText("");
 		}else if(e.getSource() == btminus){
-			fn = Double.parseDouble(input);
+			arraySize = arraySize + 1;
+			num[arraySize] = Double.parseDouble(input);
 			operation = "-";
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
-			fn = Double.parseDouble(input);
+			arraySize = arraySize + 1;
+			num[arraySize] = Double.parseDouble(input);
 			operation = "x";
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
-			fn = Double.parseDouble(input);
+			arraySize = arraySize + 1;
+			num[arraySize] = Double.parseDouble(input);
 			operation = "/";
 			tf.setText("");
 		}else if(e.getSource() == btequal){
 			switch(operation){
 			case "+":
-				total = fn + ln;
+				total = ;
 			}
 		} 
 	}
