@@ -29,17 +29,21 @@ public class TestCalculator extends JFrame implements ActionListener {
 	
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
-		p1.setLayout(new GridLayout(4,4,10,10));
+		p1.setLayout(new GridLayout(4,3,10,10));
 		
-		for(int i = 0;i < 10;i++){
+		for(int i = 9;i > 0;i--){
 			p1.add(new JButton("" + i));
 		}	
-			p1.add(btplus);
-			p1.add(btminus);
-			p1.add(bttimes);
-			p1.add(btdivide);
-			p1.add(btpoint);
-			p1.add(btc);
+		p1.add(btc);
+		p1.add(bt0);
+		p1.add(btpoint);
+		
+		JPanel p3 = new JPanel();
+		p3.setLayout(new GridLayout(4,1,10,10));
+		p3.add(bttimes);
+		p3.add(btdivide);
+		p3.add(btminus);
+		p3.add(btplus);
 			
 		JPanel p2 = new JPanel();
 		p2.add(btequal);
@@ -47,6 +51,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 			add(tf,BorderLayout.NORTH);
 			add(p1,BorderLayout.WEST);
 			add(p2,BorderLayout.EAST);
+			add(p3,BorderLayout.CENTER);
 	
 			bt1.addActionListener(this);
 			bt2.addActionListener(this);
