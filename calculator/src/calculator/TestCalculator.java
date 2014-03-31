@@ -29,13 +29,16 @@ public class TestCalculator extends JFrame implements ActionListener {
 		
 		for(int i = 0;i < 10;i++){
 			p1.add(new JButton("" + i));
+		}	
 			p1.add(btplus);
 			p1.add(btminus);
 			p1.add(bttimes);
 			p1.add(btdivide);
 			p1.add(btpoint);
 			p1.add(btc);
-		}
+			
+			add(tf,BorderLayout.NORTH);
+			add(p1,BorderLayout.EAST);
 	}
 	
 	bt1.addActionListener(this);
