@@ -75,6 +75,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
+
 		
 		
 		if(e.getSource() == bt1){
@@ -100,10 +101,12 @@ public class TestCalculator extends JFrame implements ActionListener {
 		}else if(e.getSource() == btpoint){
 			tf.setText(input + ".");
 		}else if(e.getSource() == btc){
+			total = 0;
 			tf.setText("");
 		}else if(e.getSource() == btplus){
 			num = Double.parseDouble(input);
 			total += num;
+			System.out.print("total = " + total);
 			tf.setText("");
 		}else if(e.getSource() == btminus){
 			num = Double.parseDouble(input);
@@ -119,6 +122,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 			tf.setText("");
 		}else if(e.getSource() == btequal){
 			tf.setText("" + total);
+			System.out.print("total = " + total);
 		}
 	} 
 	public static void main(String[] args){
