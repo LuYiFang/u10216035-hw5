@@ -185,14 +185,17 @@ public class TestCalculator extends JFrame implements ActionListener {
 
 class Passwords extends JFrame implements ActionListener{
 	JButton btenter = new JButton("Enter");
-	JTextField tf1 = new JTextField("Enter Passwords",4);
+	JTextField tf1 = new JTextField("",4);
 	String passwords = "0000";
 	
 	public Passwords(){
 		JPanel pp = new JPanel();
-		pp.setLayout(new GridLayout(1,2,4,4));
+		pp.setLayout(new GridLayout(1,3,4,4));
+		pp.add(new JLabel("Enter passwords"));
 		pp.add(tf1);
 		pp.add(btenter);
+		
+		add(pp,BorderLayout.CENTER);
 		
 		btenter.addActionListener(this);
 	}
