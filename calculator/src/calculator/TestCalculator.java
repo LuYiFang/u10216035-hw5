@@ -44,31 +44,31 @@ public class TestCalculator extends JFrame implements ActionListener {
 			add(tf,BorderLayout.NORTH);
 			add(p1,BorderLayout.EAST);
 			add(p2,BorderLayout.WEST);
+	
+			bt1.addActionListener(this);
+			bt2.addActionListener(this);
+			bt3.addActionListener(this);
+			bt4.addActionListener(this);
+			bt5.addActionListener(this);
+			bt6.addActionListener(this);
+			bt7.addActionListener(this);
+			bt8.addActionListener(this);
+			bt9.addActionListener(this);
+			bt0.addActionListener(this);
+			btpoint.addActionListener(this);
+			btplus.addActionListener(this);
+			btminus.addActionListener(this);
+			bttimes.addActionListener(this);
+			btdivide.addActionListener(this);
+			btequal.addActionListener(this);
+			btc.addActionListener(this);
+	
 	}
-	
-	bt1.addActionListener(this);
-	bt2.addActionListener(this);
-	bt3.addActionListener(this);
-	bt4.addActionListener(this);
-	bt5.addActionListener(this);
-	bt6.addActionListener(this);
-	bt7.addActionListener(this);
-	bt8.addActionListener(this);
-	bt9.addActionListener(this);
-	bt0.addActionListener(this);
-	btpoint.addActionListener(this);
-	btplus.addActionListener(this);
-	btminus.addActionListener(this);
-	bttimes.addActionListener(this);
-	btdivide.addActionListener(this);
-	btequal.addActionListener(this);
-	btc.addActionListener(this);
-	
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
 		Double num = 0.0;
-		double total;
+		double total = 0.0;
 		String operation;
 		
 		if(e.getSource() == bt1){
@@ -117,8 +117,16 @@ public class TestCalculator extends JFrame implements ActionListener {
 			tf.setText("");
 		}else if(e.getSource() == btequal){
 			tf.setText("" + total);
-			}
-		} 
+		}
+	} 
+	public static void main(String[] args){
+		TestCalculator frame = new TestCalculator();
+		frame.setSize(700,400);
+		frame.setTitle("Calculator");
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 	}
-
 }
+
+
