@@ -23,6 +23,21 @@ public class TestCalculator extends JFrame implements ActionListener {
 	JButton btpoint = new JButton(".");
 	JTextField tf = new JTextField();
 	
+	public TextCalculator(){
+		JPanel p1 = new JPanel();
+		p1.setLayout(new GridLayout(4,4,5,5));
+		
+		for(int i = 0;i < 10;i++){
+			p1.add(new JButton("" + i));
+			p1.add(btplus);
+			p1.add(btminus);
+			p1.add(bttimes);
+			p1.add(btdivide);
+			p1.add(btpoint);
+			p1.add(btc);
+		}
+	}
+	
 	bt1.addActionListener(this);
 	bt2.addActionListener(this);
 	bt3.addActionListener(this);
@@ -45,8 +60,29 @@ public class TestCalculator extends JFrame implements ActionListener {
 		
 		if(e.getSource() == bt1){
 			tf.setText(input + "1");
+		}else if(e.getSource() == bt2){
+			tf.setText(input + "2");
+		} else if(e.getSource() == bt3){
+			tf.setText(input + "3");
+		} else if(e.getSource() == bt4){
+			tf.setText(input + "4");
+		} else if(e.getSource() == bt5){
+			tf.setText(input + "5");
+		} else if(e.getSource() == bt6){
+			tf.setText(input + "6");
+		} else if(e.getSource() == bt7){
+			tf.setText(input + "7");
+		} else if(e.getSource() == bt8){
+			tf.setText(input + "8");
+		} else if(e.getSource() == bt9){
+			tf.setText(input + "9");
+		} else if(e.getSource() == bt0){
+			tf.setText(input + "0");
+		} else if(e.getSource() == btpoint){
+			tf.setText(input + ".");
+		} else if(e.getSource() == btc){
+			tf.setText("");
 		} 
-		}
 	}
 
 }
