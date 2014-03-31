@@ -21,10 +21,12 @@ public class TestCalculator extends JFrame implements ActionListener {
 	JButton bttimes = new JButton("x");
 	JButton btdivide = new JButton("/");
 	JButton btpoint = new JButton(".");
-	JTextField tf = new JTextField("",12);
+	JButton btenter = new JButton("Enter");
+	JTextField tf = new JTextField("Enter passwords",12);
 	
 	Double num = 0.0;
 	double total = 0.0;
+	String passwords = "0000";
 	
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
@@ -50,6 +52,8 @@ public class TestCalculator extends JFrame implements ActionListener {
 		p3.add(btplus);
 			
 		JPanel p2 = new JPanel();
+		p2.setLayout(new GridLayout(2,1));
+		p2.add(btenter);
 		p2.add(btequal);
 		
 		JPanel p4 = new JPanel();
@@ -77,6 +81,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 			btdivide.addActionListener(this);
 			btequal.addActionListener(this);
 			btc.addActionListener(this);
+			btenter.addActionListener(this);
 	
 	}
 	@Override
@@ -85,7 +90,12 @@ public class TestCalculator extends JFrame implements ActionListener {
 		int operation = 0;
 		boolean first = true;
 		
+		if(e.getSource() == btenter)
+		passwords = input;
 		
+		
+		
+	if(input == "0000"){
 		if(e.getSource() == bt1){
 			tf.setText(input + "1");
 		}else if(e.getSource() == bt2){
@@ -170,8 +180,12 @@ public class TestCalculator extends JFrame implements ActionListener {
 			tf.setText("" + total);
 			System.out.print("total = " + total + "num = " + num + operation);
 		}
+	}else{
+		tf.setText("Wrong passwords");
+	}	
 	} 
 	public static void main(String[] args){
+		
 		TestCalculator frame = new TestCalculator();
 		frame.setSize(500,400);
 		frame.setTitle("Calculator");
