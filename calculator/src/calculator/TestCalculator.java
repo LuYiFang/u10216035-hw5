@@ -24,7 +24,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	JButton btpoint = new JButton(".");
 	JTextField tf = new JTextField();
 	
-	public TextCalculator(){
+	public TestCalculator(){
 		JPanel p1 = new JPanel();
 		p1.setLayout(new GridLayout(4,4,5,5));
 		
@@ -67,8 +67,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
-		int arraySize = 0;
-		Double num[];
+		Double num = 0.0;
 		double total;
 		String operation;
 		
@@ -97,29 +96,27 @@ public class TestCalculator extends JFrame implements ActionListener {
 		}else if(e.getSource() == btc){
 			tf.setText("");
 		}else if(e.getSource() == btplus){
-			arraySize = arraySize + 1;
-			num[arraySize] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
+			total += num;
 			operation = "+";
 			tf.setText("");
 		}else if(e.getSource() == btminus){
-			arraySize = arraySize + 1;
-			num[arraySize] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
+			total -= num;
 			operation = "-";
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
-			arraySize = arraySize + 1;
-			num[arraySize] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
+			total *= num; 
 			operation = "x";
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
-			arraySize = arraySize + 1;
-			num[arraySize] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
+			total /= num;
 			operation = "/";
 			tf.setText("");
 		}else if(e.getSource() == btequal){
-			switch(operation){
-			case "+":
-				total = ;
+			tf.setText("" + total);
 			}
 		} 
 	}
