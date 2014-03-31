@@ -174,8 +174,8 @@ public class TestCalculator extends JFrame implements ActionListener {
 	} 
 	public static void main(String[] args){
 		
-		JFrame f1 = new JFrame();
-		f1.setSize(200,100);
+		Passwords f1 = new Passwords();
+		f1.setSize(300,100);
 		f1.setVisible(true);
 		f1.setTitle("Passwords");
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -183,18 +183,18 @@ public class TestCalculator extends JFrame implements ActionListener {
 	}
 }
 
-class Passwords implements ActionListener{
+class Passwords extends JFrame implements ActionListener{
 	JButton btenter = new JButton("Enter");
-	JTextField tf = new JTextField("Enter Passwords");
+	JTextField tf1 = new JTextField("Enter Passwords",4);
 	String passwords = "0000";
 	
 	public Passwords(){
 		JPanel pp = new JPanel();
 		pp.setLayout(new GridLayout(1,2,4,4));
-		pp.add(tf);
+		pp.add(tf1);
 		pp.add(btenter);
 		
-		btenter.addActionListener(new Passwords());
+		btenter.addActionListener(this);
 	}
 	
 	@Override
@@ -207,7 +207,7 @@ class Passwords implements ActionListener{
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setLocationRelativeTo(null);
 		}else{
-			tf.setText("Wrong Passwords");
+			tf1.setText("Wrong Passwords");
 		}
 	}
 }
