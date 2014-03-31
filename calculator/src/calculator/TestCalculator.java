@@ -24,10 +24,11 @@ public class TestCalculator extends JFrame implements ActionListener {
 	
 	JTextField tf = new JTextField("",12);
 	
-	Double num = 0.0;
+	double num[];
 	double total = 0.0;
-	int operation = 0;
+	int operator = 0;
 	int count = 0;
+
 	
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
@@ -110,67 +111,119 @@ public class TestCalculator extends JFrame implements ActionListener {
 			tf.setText(input + ".");
 		}else if(e.getSource() == btc){
 			total = 0;
-			count++;
 			tf.setText("");
 		}else if(e.getSource() == btplus){
-			num = Double.parseDouble(input);
+			num[count] = Double.parseDouble(input);
 			if(count == 0){
-				total = num;
+				total = num[count];
 			}else {
-				total += num;
+				switch(operator){
+				case 0:
+					total += num[count-1];
+					break;
+				case 1:	
+					total -= num[count-1];
+					break;
+				case 2:
+					total *= num[count-1]; 
+					break;
+				case 4:
+					total /= num[count-1];
+					break;
+				}
+				
 			}
-			operation = 0;
+			operator = 0;
 			count++;
-			System.out.print("total = " + total + "num = " + num + "" +  operation);
+			System.out.print("total = " + total + "num = " + num[count] + "" +  operator);
 			tf.setText("");
 		}else if(e.getSource() == btminus){
-			num = Double.parseDouble(input);
+			num[count] = Double.parseDouble(input);
 			if(count == 0){
-				total = num;
+				total = num[count];
 			}else{
-				total -= num;
-			}
-			operation = 1;
+				switch(operator){
+				case 0:
+					total += num[count];
+					break;
+				case 1:	
+					total -= num[count];
+					break;
+				case 2:
+					total *= num[count]; 
+					break;
+				case 4:
+					total /= num[count];
+					break;
+				}
+			}	
+			operator = 1;
 			count++;
-			System.out.print("total = " + total + "num = " + num +  "" + operation);
+			System.out.print("total = " + total + "num = " + num[count] +  "" + operator);
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
-			num = Double.parseDouble(input);
+			num[count] = Double.parseDouble(input);
 			if(count == 0){
-				total = num;
+				total = num[count];
 			}else{
-				total *= num; 
+				switch(operator){
+				case 0:
+					total += num[count];
+					break;
+				case 1:	
+					total -= num[count];
+					break;
+				case 2:
+					total *= num[count]; 
+					break;
+				case 4:
+					total /= num[count];
+					break;
+				}
 			}
-			operation = 2;
+			operator = 2;
 			count++;
-			System.out.print("total = " + total + "num = " + num +  "" + operation);
+			System.out.print("total = " + total + "num = " + num[count] +  "" + operator);
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
-			num = Double.parseDouble(input);
+			num[count] = Double.parseDouble(input);
 			if(count == 0){
-				total = num;
+				total = num[count];
 			}else{
-				total /= num;
+				switch(operator){
+				case 0:
+					total += num[count];
+					break;
+				case 1:	
+					total -= num[count];
+					break;
+				case 2:
+					total *= num[count]; 
+					break;
+				case 4:
+					total /= num[count];
+					break;
+				}
 			}
-			operation = 3;
+			operator = 3;
 			count++;
-			System.out.print("total = " + total + "num = " + num + "" + operation);
+			System.out.print("total = " + total + "num = " + num[count] + "" + operator);
 			tf.setText("");
 		}else if(e.getSource() == btequal){
-			num = Double.parseDouble(input);
+			num[count] = Double.parseDouble(input);
 		if(count == 1){
-			if(operation == 0){
-				total += num;
-			}else if(operation == 1){
-				total -= num;
-			}else if(operation == 2){
-				total *= num;
-			}else if(operation == 3){
-				total /= num;
+			if(operator == 0){
+				total += num[count];
+			}else if(operator == 1){
+				total -= num[count];
+			}else if(operator == 2){
+				total *= num[count];
+			}else if(operator == 3){
+				total /= num[count];
 			}
 		}
 			tf.setText("" + total);
-			System.out.print("total = " + total + "num = " + num +  "" + operation);
+			System.out.print("total = " + total + "num = " + num +  "" + operator);
 		} 
 	}
 	public static void main(String[] args){
