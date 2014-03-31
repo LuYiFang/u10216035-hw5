@@ -128,7 +128,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 				case 2:
 					total *= num; 
 					break;
-				case 4:
+				case 3:
 					total /= num;
 					break;
 				}
@@ -153,7 +153,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 				case 2:
 					total *= num; 
 					break;
-				case 4:
+				case 3:
 					total /= num;
 					break;
 				}
@@ -177,7 +177,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 				case 2:
 					total *= num; 
 					break;
-				case 4:
+				case 3:
 					total /= num;
 					break;
 				}
@@ -200,7 +200,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 				case 2:
 					total *= num; 
 					break;
-				case 4:
+				case 3:
 					total /= num;
 					break;
 				}
