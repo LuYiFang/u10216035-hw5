@@ -24,7 +24,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	
 	JTextField tf = new JTextField("",12);
 	
-	double num[];
+	double num = 0;
 	double total = 0.0;
 	int operator = 0;
 	int count = 0;
@@ -111,119 +111,117 @@ public class TestCalculator extends JFrame implements ActionListener {
 			tf.setText(input + ".");
 		}else if(e.getSource() == btc){
 			total = 0;
+			count = 0;
 			tf.setText("");
 		}else if(e.getSource() == btplus){
-			num[count] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
 			if(count == 0){
-				total = num[count];
+				total = num;
 			}else {
 				switch(operator){
 				case 0:
-					total += num[count-1];
+					total += num;
 					break;
 				case 1:	
-					total -= num[count-1];
+					total -= num;
 					break;
 				case 2:
-					total *= num[count-1]; 
+					total *= num; 
 					break;
 				case 4:
-					total /= num[count-1];
+					total /= num;
 					break;
 				}
 				
 			}
 			operator = 0;
 			count++;
-			System.out.print("total = " + total + "num = " + num[count] + "" +  operator);
+			System.out.print("total = " + total + "num = " + num + "" +  operator);
 			tf.setText("");
 		}else if(e.getSource() == btminus){
-			num[count] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
 			if(count == 0){
-				total = num[count];
+				total = num;
 			}else{
 				switch(operator){
 				case 0:
-					total += num[count];
+					total += num;
 					break;
 				case 1:	
-					total -= num[count];
+					total -= num;
 					break;
 				case 2:
-					total *= num[count]; 
+					total *= num; 
 					break;
 				case 4:
-					total /= num[count];
+					total /= num;
 					break;
 				}
 			}	
 			operator = 1;
 			count++;
-			System.out.print("total = " + total + "num = " + num[count] +  "" + operator);
+			System.out.print("total = " + total);
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
-			num[count] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
 			if(count == 0){
-				total = num[count];
+				total = num;
 			}else{
 				switch(operator){
 				case 0:
-					total += num[count];
+					total += num;
 					break;
 				case 1:	
-					total -= num[count];
+					total -= num;
 					break;
 				case 2:
-					total *= num[count]; 
+					total *= num; 
 					break;
 				case 4:
-					total /= num[count];
+					total /= num;
 					break;
 				}
 			}
 			operator = 2;
 			count++;
-			System.out.print("total = " + total + "num = " + num[count] +  "" + operator);
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
-			num[count] = Double.parseDouble(input);
+			num = Double.parseDouble(input);
 			if(count == 0){
-				total = num[count];
+				total = num;
 			}else{
 				switch(operator){
 				case 0:
-					total += num[count];
+					total += num;
 					break;
 				case 1:	
-					total -= num[count];
+					total -= num;
 					break;
 				case 2:
-					total *= num[count]; 
+					total *= num; 
 					break;
 				case 4:
-					total /= num[count];
+					total /= num;
 					break;
 				}
 			}
 			operator = 3;
 			count++;
-			System.out.print("total = " + total + "num = " + num[count] + "" + operator);
 			tf.setText("");
 		}else if(e.getSource() == btequal){
-			num[count] = Double.parseDouble(input);
-		if(count == 1){
+			num = Double.parseDouble(input);
+		
 			if(operator == 0){
-				total += num[count];
+				total += num;
 			}else if(operator == 1){
-				total -= num[count];
+				total -= num;
 			}else if(operator == 2){
-				total *= num[count];
+				total *= num;
 			}else if(operator == 3){
-				total /= num[count];
+				total /= num;
 			}
-		}
 			tf.setText("" + total);
-			System.out.print("total = " + total + "num = " + num +  "" + operator);
+			System.out.print("total = " + total );
 		} 
 	}
 	public static void main(String[] args){
