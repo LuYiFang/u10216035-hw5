@@ -26,62 +26,58 @@ public class TestCalculator extends JFrame implements ActionListener {
 	
 	double num = 0;
 	double total = 0.0;
-	int operator = 0;
+	int operator = 4;
 	int count = 0;
 
 	
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
-		p1.setLayout(new GridLayout(4,3,10,10));
-		p1.add(bt7);
-		p1.add(bt8);
-		p1.add(bt9);
-		p1.add(bt4);
-		p1.add(bt5);
-		p1.add(bt6);
-		p1.add(bt1);
-		p1.add(bt2);
-		p1.add(bt3);
-		p1.add(btc);
-		p1.add(bt0);
-		p1.add(btpoint);
+		p1.add(btequal);
 		
 		JPanel p3 = new JPanel();
-		p3.setLayout(new GridLayout(4,1,10,10));
-		p3.add(bttimes);
-		p3.add(btdivide);
-		p3.add(btminus);
-		p3.add(btplus);
-			
-		JPanel p2 = new JPanel();
-		p2.add(btequal);
+		p3.add(tf);
 		
-		JPanel p4 = new JPanel();
-		p4.add(tf);
+		JPanel p2 = new JPanel();
+		p2.setLayout(new GridLayout(4,4,50,30));
+		p2.add(bt7);
+		p2.add(bt8);
+		p2.add(bt9);
+		p2.add(bttimes);
+		p2.add(bt4);
+		p2.add(bt5);
+		p2.add(bt6);
+		p2.add(btdivide);
+		p2.add(bt1);
+		p2.add(bt2);
+		p2.add(bt3);
+		p2.add(btminus);
+		p2.add(btc);
+		p2.add(bt0);
+		p2.add(btpoint);
+		p2.add(btplus);
 			
-			add(p4,BorderLayout.NORTH);
-			add(p1,BorderLayout.WEST);
-			add(p2,BorderLayout.EAST);
-			add(p3,BorderLayout.CENTER);
+		add(p1,BorderLayout.EAST);
+		add(p2,BorderLayout.SOUTH);
+		add(p3,BorderLayout.CENTER);
 	
-			bt1.addActionListener(this);
-			bt2.addActionListener(this);
-			bt3.addActionListener(this);
-			bt4.addActionListener(this);
-			bt5.addActionListener(this);
-			bt6.addActionListener(this);
-			bt7.addActionListener(this);
-			bt8.addActionListener(this);
-			bt9.addActionListener(this);
-			bt0.addActionListener(this);
-			btpoint.addActionListener(this);
-			btplus.addActionListener(this);
-			btminus.addActionListener(this);
-			bttimes.addActionListener(this);
-			btdivide.addActionListener(this);
-			btequal.addActionListener(this);
-			btc.addActionListener(this);
-	
+		bt1.addActionListener(this);
+		bt2.addActionListener(this);
+		bt3.addActionListener(this);
+		bt4.addActionListener(this);
+		bt5.addActionListener(this);
+		bt6.addActionListener(this);
+		bt7.addActionListener(this);
+		bt8.addActionListener(this);
+		bt9.addActionListener(this);
+		bt0.addActionListener(this);
+		btpoint.addActionListener(this);
+		btplus.addActionListener(this);
+		btminus.addActionListener(this);
+		bttimes.addActionListener(this);
+		btdivide.addActionListener(this);
+		btequal.addActionListener(this);
+		btc.addActionListener(this);
+			
 	}
 	@Override
 	public void actionPerformed(ActionEvent e){
@@ -219,6 +215,8 @@ public class TestCalculator extends JFrame implements ActionListener {
 				total *= num;
 			}else if(operator == 3){
 				total /= num;
+			}else{
+				total = num;
 			}
 			tf.setText("" + total);
 			System.out.print("total = " + total );
@@ -227,7 +225,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	public static void main(String[] args){
 		
 		Passwords f1 = new Passwords();
-		f1.setSize(300,100);
+		f1.setSize(300,80);
 		f1.setVisible(true);
 		f1.setTitle("Passwords");
 		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -238,18 +236,17 @@ public class TestCalculator extends JFrame implements ActionListener {
 class Passwords extends JFrame implements ActionListener{
 	JButton btenter = new JButton("Enter");
 	JTextField tf1 = new JTextField("",4);
+	JFrame ff = new JFrame();
 	String passwords = "0000";
 	int pass = 0;
 	
 	public Passwords(){
 		JPanel pp = new JPanel();
-		pp.setLayout(new GridLayout(1,3,4,4));
 		pp.add(new JLabel("Enter passwords"));
 		pp.add(tf1);
 		pp.add(btenter);
 		
 		add(pp,BorderLayout.CENTER);
-		
 		btenter.addActionListener(this);
 	}
 	
@@ -258,7 +255,7 @@ class Passwords extends JFrame implements ActionListener{
 		
 		if(tf1.getText().equals(passwords)){
 			TestCalculator frame = new TestCalculator();
-			frame.setSize(600,400);
+			frame.setSize(700,400);
 			frame.setTitle("Calculator");
 			frame.setVisible(true);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
