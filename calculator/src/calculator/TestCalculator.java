@@ -21,7 +21,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	JButton bttimes = new JButton("x");
 	JButton btdivide = new JButton("/");
 	JButton btpoint = new JButton(".");
-	JTextField tf = new JTextField();
+	JTextField tf = new JTextField("",12);
 	
 	Double num = 0.0;
 	double total = 0.0;
@@ -29,10 +29,15 @@ public class TestCalculator extends JFrame implements ActionListener {
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
 		p1.setLayout(new GridLayout(4,3,10,10));
-		
-		for(int i = 9;i > 0;i--){
-			p1.add(new JButton("" + i));
-		}	
+		p1.add(bt7);
+		p1.add(bt8);
+		p1.add(bt9);
+		p1.add(bt4);
+		p1.add(bt5);
+		p1.add(bt6);
+		p1.add(bt1);
+		p1.add(bt2);
+		p1.add(bt3);
 		p1.add(btc);
 		p1.add(bt0);
 		p1.add(btpoint);
