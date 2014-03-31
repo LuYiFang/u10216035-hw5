@@ -16,6 +16,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	JButton bt9 = new JButton("9");
 	JButton bt0 = new JButton("0");
 	JButton btc = new JButton("C");
+	JButton btequal = new JButton("=");
 	JButton btplus = new JButton("+");
 	JButton btminus = new JButton("-");
 	JButton bttimes = new JButton("x");
@@ -37,8 +38,12 @@ public class TestCalculator extends JFrame implements ActionListener {
 			p1.add(btpoint);
 			p1.add(btc);
 			
+		JPanel p2 = new JPanel();
+		p2.add(btequal);
+			
 			add(tf,BorderLayout.NORTH);
 			add(p1,BorderLayout.EAST);
+			add(p2,BorderLayout.WEST);
 	}
 	
 	bt1.addActionListener(this);
@@ -56,35 +61,60 @@ public class TestCalculator extends JFrame implements ActionListener {
 	btminus.addActionListener(this);
 	bttimes.addActionListener(this);
 	btdivide.addActionListener(this);
+	btequal.addActionListener(this);
+	btc.addActionListener(this);
 	
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
+		double fn,ln,total;
+		String operation;
 		
 		if(e.getSource() == bt1){
 			tf.setText(input + "1");
 		}else if(e.getSource() == bt2){
 			tf.setText(input + "2");
-		} else if(e.getSource() == bt3){
+		}else if(e.getSource() == bt3){
 			tf.setText(input + "3");
-		} else if(e.getSource() == bt4){
+		}else if(e.getSource() == bt4){
 			tf.setText(input + "4");
-		} else if(e.getSource() == bt5){
+		}else if(e.getSource() == bt5){
 			tf.setText(input + "5");
-		} else if(e.getSource() == bt6){
+		}else if(e.getSource() == bt6){
 			tf.setText(input + "6");
-		} else if(e.getSource() == bt7){
+		}else if(e.getSource() == bt7){
 			tf.setText(input + "7");
-		} else if(e.getSource() == bt8){
+		}else if(e.getSource() == bt8){
 			tf.setText(input + "8");
-		} else if(e.getSource() == bt9){
+		}else if(e.getSource() == bt9){
 			tf.setText(input + "9");
-		} else if(e.getSource() == bt0){
+		}else if(e.getSource() == bt0){
 			tf.setText(input + "0");
-		} else if(e.getSource() == btpoint){
+		}else if(e.getSource() == btpoint){
 			tf.setText(input + ".");
-		} else if(e.getSource() == btc){
+		}else if(e.getSource() == btc){
 			tf.setText("");
+		}else if(e.getSource() == btplus){
+			fn = Double.parseDouble(input);
+			operation = "+";
+			tf.setText("");
+		}else if(e.getSource() == btminus){
+			fn = Double.parseDouble(input);
+			operation = "-";
+			tf.setText("");
+		}else if(e.getSource() == bttimes){
+			fn = Double.parseDouble(input);
+			operation = "x";
+			tf.setText("");
+		}else if(e.getSource() == btdivide){
+			fn = Double.parseDouble(input);
+			operation = "/";
+			tf.setText("");
+		}else if(e.getSource() == btequal){
+			switch(operation){
+			case "+":
+				total = fn + ln;
+			}
 		} 
 	}
 
