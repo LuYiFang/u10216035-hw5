@@ -1,8 +1,7 @@
 package calculator;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import javax.swing.*;
 public class TestCalculator extends JFrame implements ActionListener {
 	private JButton bt1 = new JButton("1");
@@ -75,7 +74,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
-
+		int operation = 0;
 		
 		
 		if(e.getSource() == bt1){
@@ -104,23 +103,37 @@ public class TestCalculator extends JFrame implements ActionListener {
 			total = 0;
 			tf.setText("");
 		}else if(e.getSource() == btplus){
+			operation = 0;
 			num = Double.parseDouble(input);
 			total += num;
 			System.out.print("total = " + total);
 			tf.setText("");
 		}else if(e.getSource() == btminus){
+			operation = 1;
 			num = Double.parseDouble(input);
 			total -= num;
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
+			operation = 2;
 			num = Double.parseDouble(input);
 			total *= num; 
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
+			operation = 3;
 			num = Double.parseDouble(input);
 			total /= num;
 			tf.setText("");
 		}else if(e.getSource() == btequal){
+			num = Double.parseDouble(input);
+			if(operation == 0){
+				total += num;
+			}else if(operation == 1){
+				total -= num;
+			}else if(operation == 2){
+				total *= num;
+			}else if(operation == 3){
+				total /= num;
+			}
 			tf.setText("" + total);
 			System.out.print("total = " + total);
 		}
