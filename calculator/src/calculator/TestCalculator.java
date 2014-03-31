@@ -46,8 +46,11 @@ public class TestCalculator extends JFrame implements ActionListener {
 			
 		JPanel p2 = new JPanel();
 		p2.add(btequal);
+		
+		JPanel p4 = new JPanel();
+		p4.add(tf);
 			
-			add(tf,BorderLayout.NORTH);
+			add(p4,BorderLayout.NORTH);
 			add(p1,BorderLayout.WEST);
 			add(p2,BorderLayout.EAST);
 			add(p3,BorderLayout.CENTER);
@@ -75,6 +78,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
 		int operation = 0;
+		boolean first = true;
 		
 		
 		if(e.getSource() == bt1){
@@ -101,27 +105,51 @@ public class TestCalculator extends JFrame implements ActionListener {
 			tf.setText(input + ".");
 		}else if(e.getSource() == btc){
 			total = 0;
+			first = true;
 			tf.setText("");
 		}else if(e.getSource() == btplus){
+			if(first){
+				num = Double.parseDouble(input);
+				total = num;
+			}else {
+				total += num;
+			}
 			operation = 0;
-			num = Double.parseDouble(input);
-			total += num;
-			System.out.print("total = " + total);
+			first = false;
+			System.out.print("total = " + total + "num = " + num + operation);
 			tf.setText("");
 		}else if(e.getSource() == btminus){
-			operation = 1;
 			num = Double.parseDouble(input);
-			total -= num;
+			if(first){
+				total = num;
+			}else{
+				total -= num;
+			}
+			operation = 1;
+			first = false;
+			System.out.print("total = " + total + "num = " + num + operation);
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
-			operation = 2;
 			num = Double.parseDouble(input);
-			total *= num; 
+			if(first){
+				total = num;
+			}else{
+				total *= num; 
+			}
+			operation = 2;
+			first = false;
+			System.out.print("total = " + total + "num = " + num + operation);
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
+			if(first){
+				num = Double.parseDouble(input);
+				total = num;
+			}
 			operation = 3;
+			first = false;
 			num = Double.parseDouble(input);
 			total /= num;
+			System.out.print("total = " + total + "num = " + num + operation);
 			tf.setText("");
 		}else if(e.getSource() == btequal){
 			num = Double.parseDouble(input);
@@ -135,7 +163,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 				total /= num;
 			}
 			tf.setText("" + total);
-			System.out.print("total = " + total);
+			System.out.print("total = " + total + "num = " + num + operation);
 		}
 	} 
 	public static void main(String[] args){
