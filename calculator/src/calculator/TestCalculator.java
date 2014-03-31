@@ -24,6 +24,9 @@ public class TestCalculator extends JFrame implements ActionListener {
 	JButton btpoint = new JButton(".");
 	JTextField tf = new JTextField();
 	
+	Double num = 0.0;
+	double total = 0.0;
+	
 	public TestCalculator(){
 		JPanel p1 = new JPanel();
 		p1.setLayout(new GridLayout(4,4,5,5));
@@ -42,8 +45,8 @@ public class TestCalculator extends JFrame implements ActionListener {
 		p2.add(btequal);
 			
 			add(tf,BorderLayout.NORTH);
-			add(p1,BorderLayout.EAST);
-			add(p2,BorderLayout.WEST);
+			add(p1,BorderLayout.WEST);
+			add(p2,BorderLayout.EAST);
 	
 			bt1.addActionListener(this);
 			bt2.addActionListener(this);
@@ -67,9 +70,7 @@ public class TestCalculator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String input = tf.getText();
-		Double num = 0.0;
-		double total = 0.0;
-		String operation;
+		
 		
 		if(e.getSource() == bt1){
 			tf.setText(input + "1");
@@ -98,22 +99,18 @@ public class TestCalculator extends JFrame implements ActionListener {
 		}else if(e.getSource() == btplus){
 			num = Double.parseDouble(input);
 			total += num;
-			operation = "+";
 			tf.setText("");
 		}else if(e.getSource() == btminus){
 			num = Double.parseDouble(input);
 			total -= num;
-			operation = "-";
 			tf.setText("");
 		}else if(e.getSource() == bttimes){
 			num = Double.parseDouble(input);
 			total *= num; 
-			operation = "x";
 			tf.setText("");
 		}else if(e.getSource() == btdivide){
 			num = Double.parseDouble(input);
 			total /= num;
-			operation = "/";
 			tf.setText("");
 		}else if(e.getSource() == btequal){
 			tf.setText("" + total);
